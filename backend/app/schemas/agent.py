@@ -11,7 +11,7 @@ class AgentBase(BaseSchema):
     category: AgentCategory
     price: Decimal = Field(..., ge=0)
     capabilities: List[str] = Field(..., min_items=1)
-    metadata: Dict = Field(default_factory=dict)
+    agent_metadata: Dict = Field(default_factory=dict)
 
 class AgentCreate(AgentBase):
     creator_id: int
@@ -23,7 +23,7 @@ class AgentUpdate(BaseSchema):
     price: Optional[Decimal] = None
     status: Optional[AgentStatus] = None
     capabilities: Optional[List[str]] = None
-    metadata: Optional[Dict] = None
+    agent_metadata: Optional[Dict] = None
 
 class AgentInDBBase(AgentBase, TimestampedSchema):
     id: int
