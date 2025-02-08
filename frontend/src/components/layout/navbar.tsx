@@ -9,6 +9,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import Image from "next/image";
 
 export function Navbar() {
   const { address, isConnected } = useAccount();
@@ -24,11 +25,20 @@ export function Navbar() {
   };
 
   return (
-    <div className="border-b">
-      <div className="container flex h-16 items-center px-4">
+    <div className="border-b bg-transparent">
+      <div className="container mx-auto w-full flex h-16 items-center px-5 md:px-10">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="hidden font-bold sm:inline-block">Synthr</span>
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              width={30}
+              height={30}
+              className=""
+            />
+            <span className="hidden text-xl ml-5 font-bold sm:inline-block">
+              Synthr
+            </span>
           </Link>
           <NavigationMenu>
             <NavigationMenuList>

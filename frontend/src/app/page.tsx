@@ -3,38 +3,27 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
-import { AnimatedGradient } from "@/components/ui/animated-gradient";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Navbar } from "@/components/layout/navbar";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-[calc(100vh-4rem)] relative overflow-hidden">
-      <AnimatedGradient />
+      <Navbar />
       {/* Hero Section */}
-      <section className="flex-1 flex flex-col items-center justify-center space-y-10 px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center space-y-4"
-        >
-          <motion.h1
-            className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            SYNTHR
-          </motion.h1>
-          <motion.p
-            className="text-2xl text-muted-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            The Future of AI Agent Trading
-          </motion.p>
-        </motion.div>
+      <section className="flex-1 flex flex-col items-center justify-center space-y-10">
+        <div className="h-[40rem] w-full flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+          <Spotlight />
+          <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
+            <h1 className="text-4xl mx-auto max-w-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+              The Future of AI Agent Trading
+            </h1>
+            <p className=" mt-8 text-lg font-normal text-neutral-300 max-w-lg text-center mx-auto">
+              Transform the way you interact with AI. Create, trade, and own
+              powerful AI agents in a decentralized marketplace.
+            </p>
+          </div>
+        </div>
 
         {/* Animated Stats Section */}
         <motion.div
