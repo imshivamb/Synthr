@@ -154,7 +154,7 @@ ai-agent-marketplace/
 ├── docs/             # Documentation
 └── scripts/          # Utility scripts
 ```
-
+<!-- 
 ## Contributing 🤝
 1. Fork the repository
 2. Create a feature branch
@@ -163,4 +163,4 @@ ai-agent-marketplace/
 5. Create a Pull Request
 
 ## License 📄
-MIT License - see LICENSE.md
+MIT License - see LICENSE.md -->

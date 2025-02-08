@@ -1,14 +1,15 @@
 import { ethers } from "hardhat";
+import { getContractAddress } from "../helpers/contractAddress";
 
-// Use the values from your successful IPFS upload
+// IPFS metadata from your successful upload
 const METADATA_URL = "ipfs://QmfUqvbHzMh8JgRWaSGTftcUKE1GGKB9vhTpGPY5iaZjS1";
-const CONTRACT_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
 async function main() {
     try {
+        const CONTRACT_ADDRESS = getContractAddress();
+        
         // Get the AIAgentNFT contract factory
         const AIAgentNFT = await ethers.getContractFactory("AIAgentNFT");
-
         
         // Get the deployer's address
         const [owner] = await ethers.getSigners();
@@ -16,7 +17,6 @@ async function main() {
 
         // Get the deployed contract instance
         const contract = await ethers.getContractAt("AIAgentNFT", CONTRACT_ADDRESS, owner);
-
         console.log("Contract attached at:", CONTRACT_ADDRESS);
 
         // Mint the NFT
@@ -28,7 +28,6 @@ async function main() {
         if (!receipt) {
             throw new Error("Transaction receipt is null. Minting may have failed.");
         }
-
 
         // Log the results
         console.log("NFT Minted Successfully!");

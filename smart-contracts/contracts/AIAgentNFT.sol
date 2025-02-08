@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract AIAgentNFT is ERC721URIStorage, Ownable {
     uint256 private _tokenIdCounter;
-    uint256 public royaltyPercentage = 1000; // 10% as base royalty
+    uint256 public royaltyPercentage = 1000;
 
     // Custom errors
     error InvalidRoyaltyPercentage();

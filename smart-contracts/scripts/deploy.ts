@@ -1,23 +1,23 @@
 import { ethers } from "hardhat";
+import { saveContractAddress } from "../helpers/contractAddress";
 
 async function main() {
-  // Get the ContractFactory
-  const AIAgentNFT = await ethers.getContractFactory("AIAgentNFT");
+    console.log("Deploying AIAgentNFT...");
+    const AIAgentNFT = await ethers.getContractFactory("AIAgentNFT");
+    const aiAgentNFT = await AIAgentNFT.deploy();
 
-  // Deploy the contract
-  console.log("Deploying AIAgentNFT...");
-  const aiAgentNFT = await AIAgentNFT.deploy();
-  
-  // Wait for deployment to complete
-  await aiAgentNFT.waitForDeployment();
+    await aiAgentNFT.waitForDeployment();
+    
+    const address = await aiAgentNFT.getAddress();
+    console.log("AIAgentNFT deployed to:", address);
 
-  // Get the deployed contract address
-  const deployedAddress = await aiAgentNFT.getAddress();
-  console.log(`AIAgentNFT deployed to: ${deployedAddress}`);
+    // Save the address for frontend and other scripts
+    saveContractAddress(address);
 }
 
-// Handle errors
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+main()
+    .then(() => process.exit(0))
+    .catch((error) => {
+        console.error(error);
+        process.exit(1);
+    });
