@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import List
+from typing import List, Optional
 import secrets
 from functools import lru_cache
 
@@ -45,6 +45,10 @@ class Settings(BaseSettings):
     REDIS_URL: str | None = None
     REDIS_HOST: str = "localhost"
     REDIS_PORT: int = 6379
+    
+    PINATA_API_KEY: str
+    PINATA_SECRET_KEY: str
+    PINATA_GATEWAY_URL: Optional[str] = "https://gateway.pinata.cloud/ipfs/"
 
     class Config:
         env_file = ".env"
